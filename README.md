@@ -1,31 +1,140 @@
-# Resume Parser Automation (Java + n8n + API Integrations)
+# AI Resume Automation Pipeline 🚀
 
-An automation/integration project that demonstrates a real workflow recruiters rarely see:
-**Resume Upload → Java parses resume → n8n automates Google Sheets logging + Email alerts**.
+This project demonstrates an **automated resume processing pipeline** built using **Spring Boot, n8n, and Google Sheets**.
 
-## What it does
+The system automatically receives candidate resume data via a webhook, processes the information, and stores structured candidate details in **Google Sheets** for further analysis.
 
-1. User uploads a resume (PDF/DOCX).
-2. Java (Spring Boot) extracts text from the resume.
-3. Java parses the resume into structured JSON (AI-ready).
-4. Java sends the structured JSON to **n8n webhook**.
-5. n8n:
-   - Appends a row in **Google Sheets**
-   - Sends an **email alert** (to HR/candidate)
-   - (Optional) Sends Slack/Teams notification
+---
 
-## Tech Stack
+# 📌 Features
 
-- **Java 17**, **Spring Boot**
-- **n8n** (self-hosted via Docker)
-- **Google Sheets API** (via n8n connector)
-- **Email (SMTP)** (via n8n)
-- Optional: **OpenAI / Gemini** for AI parsing
+• Automated Resume Data Processing
+• Webhook-based Integration
+• Google Sheets Candidate Database
+• No-code Automation using n8n
+• Scalable Architecture
 
-## Repository Structure
+---
 
-resume-parser-automation/
-backend/ # Spring Boot API
-n8n/ # n8n workflow JSON exports
-docs/ # screenshots + architecture
-README.md
+# 🏗️ Architecture
+
+```
+Spring Boot Resume Parser
+          │
+          ▼
+       Webhook
+          │
+          ▼
+       n8n Workflow
+          │
+          ▼
+    Google Sheets Database
+```
+
+---
+
+# ⚙️ Tech Stack
+
+Backend
+• Java
+• Spring Boot
+
+Automation
+• n8n Workflow Automation
+
+Data Storage
+• Google Sheets API
+
+Cloud / Integration
+• Google Cloud Platform
+
+---
+
+# 📂 Project Workflow
+
+1. Resume data is sent to the **Webhook endpoint**.
+2. n8n receives the payload.
+3. Fields are mapped and processed.
+4. Candidate information is appended to **Google Sheets**.
+
+Stored fields:
+
+• Timestamp
+• Candidate Name
+• Email
+• Phone
+• Education
+• Skills
+
+---
+
+# 📊 Example Output
+
+| Timestamp  | Name           | Email                                                     | Phone  | Skills                   |
+| ---------- | -------------- | --------------------------------------------------------- | ------ | ------------------------ |
+| 2026-03-04 | Pardha Saradhi | [pardhasaradhi@gmail.com](mailto:pardhasaradhi@gmail.com) | +44... | Java, Spring Boot, React |
+
+---
+
+# 🚀 How to Run
+
+### 1️⃣ Start n8n
+
+```
+npx n8n
+```
+
+or
+
+```
+docker run -it --rm \
+-p 5678:5678 \
+n8nio/n8n
+```
+
+---
+
+### 2️⃣ Configure Google Sheets
+
+1. Enable APIs
+   - Google Sheets API
+   - Google Drive API
+
+2. Create **Service Account**
+
+3. Download credentials JSON
+
+4. Share Google Sheet with service account email.
+
+---
+
+### 3️⃣ Import Workflow
+
+Import the n8n workflow JSON file.
+
+---
+
+# 📌 Future Improvements
+
+• AI Resume Ranking using LLM
+• Candidate Shortlisting Dashboard
+• Resume PDF Upload Support
+• Automated Email Notifications
+
+---
+
+# 👨‍💻 Author
+
+**Pardha Saradhi Chakolthi**
+
+MSc Computer Science
+University of East London
+
+GitHub:
+https://github.com/
+
+---
+
+# ⭐ If you like this project
+
+Give it a ⭐ on GitHub!
